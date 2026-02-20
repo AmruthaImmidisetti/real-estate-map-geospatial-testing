@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 
-## 📌 Project Overview
+## Project Overview
 
 This project is a full-featured real estate web application built using
 React and Mapbox GL JS.\
@@ -15,7 +15,7 @@ containerization requirements specified in the assignment.
 
 ------------------------------------------------------------------------
 
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -36,7 +36,7 @@ containerization requirements specified in the assignment.
 
 ------------------------------------------------------------------------
 
-## 🗂 Data Seeding
+## Data Seeding
 
 -   Contains **30+ property listings**
 -   Properties distributed across:
@@ -49,9 +49,9 @@ containerization requirements specified in the assignment.
 
 ------------------------------------------------------------------------
 
-## 🌐 Application Routes
+## Application Routes
 
-### 🏠 Properties Page
+### Properties Page
 
 -   `/`
 -   `/properties`
@@ -60,7 +60,7 @@ containerization requirements specified in the assignment.
 -   Supports polygon boundary filtering
 -   Marker click highlights property card
 
-### 🔎 Advanced Search
+### Advanced Search
 
 -   `/search`
 -   Location autocomplete
@@ -69,7 +69,7 @@ containerization requirements specified in the assignment.
 -   Bedroom filtering
 -   Save search functionality
 
-### 🏡 Property Detail
+### Property Detail
 
 -   `/property/:id`
 -   Full property details
@@ -77,7 +77,7 @@ containerization requirements specified in the assignment.
 -   Coordinates display
 -   Nearby amenities with distance calculation (Haversine formula)
 
-### 💾 Saved Searches
+### Saved Searches
 
 -   `/saved-searches`
 -   View saved searches
@@ -87,7 +87,7 @@ containerization requirements specified in the assignment.
 
 ------------------------------------------------------------------------
 
-## ⚙️ Running Locally
+## Running Locally
 
 ### Install Dependencies
 
@@ -103,7 +103,7 @@ http://localhost:3000
 
 ------------------------------------------------------------------------
 
-## 🧪 Running Integration Tests
+## Running Integration Tests
 
 Before running Puppeteer tests, ensure the React app is running.
 
@@ -132,7 +132,7 @@ net::ERR_CONNECTION_REFUSED
 
 ------------------------------------------------------------------------
 
-## 🐳 Docker Setup
+## Docker Setup
 
 ### Build Containers
 
@@ -159,7 +159,7 @@ Test results will be generated in:
 
 ------------------------------------------------------------------------
 
-## 🔐 Environment Configuration
+## Environment Configuration
 
 An `.env.example` file is provided with required variables:
 
@@ -172,16 +172,34 @@ REACT_APP_MAPBOX_ACCESS_TOKEN=your_real_mapbox_token
 
 ------------------------------------------------------------------------
 
-## 🧱 Project Structure
+## Project Structure
 
-real-estate-map/ │ ├── src/ │ ├── pages/ │ ├── data/ │ ├── utils/ │ └──
-tests/integration/ │ ├── test-results/ ├── docker-compose.yml ├──
-Dockerfile ├── Dockerfile.test ├── .env.example ├── package.json └──
-README.md
+    real-estate-map/
+    │
+    ├── src/
+    │   ├── pages/
+    │   │   ├── PropertiesPage.jsx
+    │   │   ├── PropertyDetail.jsx
+    │   │   ├── SearchPage.jsx
+    │   │   └── SavedSearches.jsx
+    │   │
+    │   ├── data/
+    │   │   └── properties.json
+    │   │
+    │   ├── utils/
+    │   │   └── distance.js
+    │   │
+    │   └── tests/
+    │       └── integration/
+    │
+    ├── Dockerfile
+    ├── docker-compose.yml
+    ├── .env.example
+    └── README.md
 
 ------------------------------------------------------------------------
 
-## ✅ Core Features Implemented
+## Core Features Implemented
 
 ✔ Mapbox map initialization\
 ✔ Property markers with test IDs\
@@ -197,7 +215,7 @@ README.md
 
 ------------------------------------------------------------------------
 
-## 📋 Submission Checklist
+## Submission Checklist
 
 The repository includes:
 
@@ -213,7 +231,7 @@ The repository includes:
 
 ------------------------------------------------------------------------
 
-## 🧪 Evaluation Notes
+## Evaluation Notes
 
 -   All required `data-testid` attributes are implemented.
 -   Integration tests validate map interactions, filters, saving/loading
@@ -223,7 +241,7 @@ The repository includes:
 
 ------------------------------------------------------------------------
 
-## 📌 Final Status
+## Final Status
 
 The project satisfies all functional, geospatial, integration testing,
 and Docker requirements as specified in the assignment.
