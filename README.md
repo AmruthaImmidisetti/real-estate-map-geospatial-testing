@@ -1,70 +1,229 @@
-# Getting Started with Create React App
+# Real Estate Property Finder with Mapbox & Puppeteer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+------------------------------------------------------------------------
 
-## Available Scripts
+## 📌 Project Overview
 
-In the project directory, you can run:
+This project is a full-featured real estate web application built using
+React and Mapbox GL JS.\
+It enables users to explore properties geographically, apply advanced
+filters, save searches, and validate all features using automated
+Puppeteer integration tests.
 
-### `npm start`
+The project fulfills all functional, geospatial, testing, and
+containerization requirements specified in the assignment.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+------------------------------------------------------------------------
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Tech Stack
 
-### `npm test`
+### Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   React.js
+-   React Router
+-   Mapbox GL JS
+-   Mapbox Geocoding API
 
-### `npm run build`
+### Testing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   Jest
+-   Puppeteer (Headless Browser Automation)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Containerization
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   Docker
+-   Docker Compose
 
-### `npm run eject`
+------------------------------------------------------------------------
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🗂 Data Seeding
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Contains **30+ property listings**
+-   Properties distributed across:
+    -   San Francisco
+    -   Los Angeles
+    -   New York
+-   Each property follows the required schema (id, price, lat/lng,
+    amenities, etc.)
+-   Data is stored locally in `src/data/properties.json`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+------------------------------------------------------------------------
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🌐 Application Routes
 
-## Learn More
+### 🏠 Properties Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   `/`
+-   `/properties`
+-   Displays interactive Mapbox map
+-   Shows property markers
+-   Supports polygon boundary filtering
+-   Marker click highlights property card
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🔎 Advanced Search
 
-### Code Splitting
+-   `/search`
+-   Location autocomplete
+-   Radius-based filtering
+-   Price filtering
+-   Bedroom filtering
+-   Save search functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🏡 Property Detail
 
-### Analyzing the Bundle Size
+-   `/property/:id`
+-   Full property details
+-   Map showing property location
+-   Coordinates display
+-   Nearby amenities with distance calculation (Haversine formula)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 💾 Saved Searches
 
-### Making a Progressive Web App
+-   `/saved-searches`
+-   View saved searches
+-   Load previous filters
+-   Delete saved searches
+-   Empty state handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+------------------------------------------------------------------------
 
-### Advanced Configuration
+## ⚙️ Running Locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Install Dependencies
 
-### Deployment
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Start Development Server
 
-### `npm run build` fails to minify
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Application runs at:
+
+http://localhost:3000
+
+------------------------------------------------------------------------
+
+## 🧪 Running Integration Tests
+
+Before running Puppeteer tests, ensure the React app is running.
+
+### Step 1 --- Start App
+
+npm start
+
+Wait for: Compiled successfully\
+Local: http://localhost:3000
+
+Keep this terminal open.
+
+### Step 2 --- Run Tests (New Terminal)
+
+npm run test:integration
+
+Test results will be generated in:
+
+/test-results
+
+Includes: - integration-report.json - geospatial-test-summary.json -
+screenshots/
+
+If the app is not running, tests will fail with:
+net::ERR_CONNECTION_REFUSED
+
+------------------------------------------------------------------------
+
+## 🐳 Docker Setup
+
+### Build Containers
+
+docker-compose build
+
+### Run Containers
+
+docker-compose up
+
+Application will be available at:
+
+http://localhost:3000
+
+(The Docker setup exposes port 3006 as required by assignment
+specifications.)
+
+To run integration tests inside Docker:
+
+docker-compose exec puppeteer-integration-tests npm run test:integration
+
+Test results will be generated in:
+
+/test-results
+
+------------------------------------------------------------------------
+
+## 🔐 Environment Configuration
+
+An `.env.example` file is provided with required variables:
+
+MAPBOX_ACCESS_TOKEN=pk.test.mock-token-for-testing-purposes\
+MAPBOX_STYLE=mapbox://styles/mapbox/streets-v11
+
+For local development, create a `.env` file:
+
+REACT_APP_MAPBOX_ACCESS_TOKEN=your_real_mapbox_token
+
+------------------------------------------------------------------------
+
+## 🧱 Project Structure
+
+real-estate-map/ │ ├── src/ │ ├── pages/ │ ├── data/ │ ├── utils/ │ └──
+tests/integration/ │ ├── test-results/ ├── docker-compose.yml ├──
+Dockerfile ├── Dockerfile.test ├── .env.example ├── package.json └──
+README.md
+
+------------------------------------------------------------------------
+
+## ✅ Core Features Implemented
+
+✔ Mapbox map initialization\
+✔ Property markers with test IDs\
+✔ Location autocomplete\
+✔ Radius filtering\
+✔ Polygon boundary filtering\
+✔ Marker-to-card interaction\
+✔ Save & load searches\
+✔ Property detail with amenity distance calculation\
+✔ Puppeteer integration tests\
+✔ JSON test result generation\
+✔ Docker containerization
+
+------------------------------------------------------------------------
+
+## 📋 Submission Checklist
+
+The repository includes:
+
+✔ README.md\
+✔ docker-compose.yml\
+✔ Dockerfile\
+✔ Dockerfile.test\
+✔ .env.example\
+✔ src directory\
+✔ tests/integration directory\
+✔ test-results directory\
+✔ 30+ seeded properties
+
+------------------------------------------------------------------------
+
+## 🧪 Evaluation Notes
+
+-   All required `data-testid` attributes are implemented.
+-   Integration tests validate map interactions, filters, saving/loading
+    searches, and geospatial logic.
+-   The application is fully containerized for one-command setup.
+-   Test results are automatically generated inside `/test-results`.
+
+------------------------------------------------------------------------
+
+## 📌 Final Status
+
+The project satisfies all functional, geospatial, integration testing,
+and Docker requirements as specified in the assignment.
